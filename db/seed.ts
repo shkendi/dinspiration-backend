@@ -2,11 +2,50 @@ import mongoose from "mongoose"
 import Foods from "../models/foods"
 import Users from "../models/users"
 
+
+// ! Jane made changes to the seed so that foods are validated before being added to the database
 const foodData = [
-  { name: "Orange" },
-  { name: "Spaghetti" },
-  { name: "Fig" },
-  { name: "Tofu" }
+  { name: "orange",
+    imageURL: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Orange-Whole-%26-Split.jpg",
+    options: {
+      fruit: true,
+      vegetable: false,
+      meat: false,
+      dairy: false,
+      eggs: false,
+      gluten: false,
+      nut: false,
+      shellfish: false,
+    },
+    lifestyle: {
+      lowGi: true,
+      lowCarb: true,
+      highProtein: false,
+      lowCalorie: true,
+      keto: false
+    }
+  },
+  { name: "spaghetti",
+  imageURL: "https://upload.wikimedia.org/wikipedia/commons/d/d1/Spaghetti_with_Meatballs_%28cropped%29.jpg",
+  options: {
+    fruit: false,
+    vegetable: false,
+    meat: false,
+    dairy: false,
+    eggs: false,
+    gluten: true,
+    nut: false,
+    shellfish: false,
+  },
+  lifestyle: {
+    lowGi: true,
+    lowCarb: false,
+    highProtein: false,
+    lowCalorie: false,
+    keto: false
+  }
+}
+
 ]
 
 // ! Pam's added userSeed code - only works when users.ts is updated
