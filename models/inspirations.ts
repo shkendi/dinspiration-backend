@@ -9,7 +9,7 @@ const inspirationSchema = new mongoose.Schema({
 	userImage: {type: String, required: false},
 	userId: {type: String, required: true},
 	primaryFood: {type: String, required: true},
-	secondaryfood: {type: String, required: true}
+	secondaryfood: {type: String, required: false}
 })
 
 export default mongoose.model("Inspiration", inspirationSchema)
