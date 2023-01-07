@@ -3,23 +3,30 @@ import validator from "validator"
 import uniqueValidator from "mongoose-unique-validator"
 import mongooseHidden from "mongoose-hidden"
 
+import bcrypt from "bcrypt"
 
-// ! Jane commenting out user food schema to test seed
-// const userFoodsSchema = new mongoose.Schema({ 
-//   anything: { type: Boolean }, 
-//   fruits: { type: Boolean }, 
-//   vegetables: { type: Boolean }, 
-//   meat: { type: Boolean }, 
-//   dairy: { type: Boolean }, 
-//   eggs: { type: Boolean }, 
-//   gluten: { type: Boolean }, 
-//   nuts: { type: Boolean }, 
-//   shellfish: { type: Boolean }
-// })
+const userOptionsSchema = new mongoose.Schema({ 
+  anything: { type: Boolean, required: true, default: true }, 
+  fruits: { type: Boolean, required: true, default: false }, 
+  vegetables: { type: Boolean, required: true, default: false }, 
+  meat: { type: Boolean,required: true, default: false }, 
+  dairy: { type: Boolean, required: true, dafault: false }, 
+  eggs: { type: Boolean, required: true, default: false }, 
+  gluten: { type: Boolean, required: true, default: false }, 
+  nuts: { type: Boolean, required: true, default: false }, 
+  shellfish: { type: Boolean, required: true, default: false }
+})
 
-// const userLifestyleSchema = new mongoose.Schema({ 
-  
-// })
+// the userLifestyle variable corresponds to the following array: 
+// ["low gi", "low carb", "high protein", "low calorie", "keto", "skip"]
+// and must be an integer between 0 and 4
+const userLifestyleSchema = new mongoose.Schema({ 
+    userChoice: { 
+      type: Number, 
+      required: true,
+      validate: (userChoice: Number) => userChoice > -1 && userChoice < 6
+    }
+})
 
 const userSchema = new mongoose.Schema({
 
@@ -65,10 +72,12 @@ const userSchema = new mongoose.Schema({
   }, 
 
   userFoods: { 
-    type: Object, 
-
+    type: userOptionsSchema, 
+  }, 
+  
+  userLifestyle: { 
+    type: userLifestyleSchema,
   }
-
 })
 
 // ensures that sensitive information will not be returned in the response
@@ -76,5 +85,11 @@ userSchema.plugin(mongooseHidden({ defaultHidden: {password: true, email:true, _
 
 // ensures that the username and email address provided are unique to the user
 userSchema.plugin(uniqueValidator, { type: 'mongoose-unique-validator' })
+
+// hashing the password before saving
+userSchema.pre('save', function hashPassword(next) { 
+  this.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync())
+  next() 
+})
 
 export default mongoose.model("User", userSchema)

@@ -48,25 +48,27 @@ const foodData = [
 
 ]
 
-// ! Pam's added userSeed code - only works when users.ts is updated
-// const userData = [
-//   {
-//     username: "Pam",
-//     email: "pam@string.string",
-//     password: "helloworld"
-//   },
-//   {
-//     username: "Shkendi",
-//     email: "shkendi@string.string",
-//     password: "helloworld"
-//   },
-//   {
-//     username: "Jane",
-//     email: "jane@string.string",
-//     password: "helloworld"
-//   },
-// ]
-// !
+
+const userData = [
+  {
+    username: "Pam",
+    email: "pam@string.string",
+    password: "Helloworld123!", 
+    userFoods: { 
+      anything: false,
+      fruits: true, 
+      vegetables: true, 
+      meat: true, 
+      dairy: true, 
+      eggs: true, 
+      gluten: true, 
+      nuts: true, 
+      shellfish: true
+    }, 
+    userChoice: 2
+  }
+]
+
 
 
 async function seed() {
