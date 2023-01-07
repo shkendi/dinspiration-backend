@@ -3,6 +3,7 @@ import { Request, Response } from "express"
 import mongoose from "mongoose"
 import Foods from "./models/foods"
 import Users from "./models/users"
+import Inspirations from "./models/inspirations"
 import router from "./views/router"
 
 
@@ -65,6 +66,14 @@ const app = express()
 // const userData = []
 
 // const inspirationData = []
+
+// Shkendi's added inspirations code
+
+router.route('/my-inspirations')
+.get(async (req, res) => {
+	const inspirations = await Inspirations.find()
+	res.send(inspirations)
+})
 
 // ? Jane's note ->  routes and seed data should be moved in our catchup
 // ? Jane to bring up whether we should change the names of endpoints, e.g. to have a /foods endpoint that is not visible to users that shows all foods. I found this really useful while working
