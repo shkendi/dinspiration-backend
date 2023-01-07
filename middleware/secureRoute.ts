@@ -9,12 +9,14 @@ interface JwtPayload {
 }
 
 // ! extends express type 
+// ! added types/express folder containing
+// ! index.d.ts file with type
 
-// declare module "express" { 
-//   export interface Request { 
-//     currentUser: any
-//   }
-// }
+declare module "express" { 
+  export interface Request { 
+    currentUser: any
+  }
+}
 
 export default function secureRoute(req: Request, res: Response, next: NextFunction) {
   

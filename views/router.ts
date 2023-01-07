@@ -12,7 +12,7 @@ import secureRoute from "../middleware/secureRoute"
 const router = express.Router()
 
 router.route('/foods')
-.get(getFoods)
+.get(secureRoute, getFoods)
 .post(createFoods)
 
 // remember to change so searching by id
