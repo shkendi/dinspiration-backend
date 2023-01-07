@@ -1,8 +1,13 @@
 import Users from "../models/users"
 import { Request, Response } from "express"
 import { StatusCodes } from "http-status-codes"
-import { checkPasswords } from "../models/users"
+import { checkPasswords, validatePassword } from "../models/users"
 // import formatValidationError from "../errors/validation"
+
+
+import jwt from 'jsonwebtoken'
+import { secret } from "../config/environment"
+
 
 export async function signupUser(req: Request, res: Response) { 
   try {
@@ -24,7 +29,16 @@ export async function loginUser(req: Request, res: Response) {
     if (!user) { 
       return res.status(StatusCodes.NOT_FOUND).send({ message: "Account not found"})
     } else { 
-      return res.status(StatusCodes.OK).send({messsage: "Login successful"})
+// jwt auth begins
+const isValidPw = validatePassword(req.body.password, user.password) 
+if (isValidPw) { 
+  const username = req.body.username
+  const token = jwt.sign({userId: user._id }, secret, { expiresIn: '24h'})
+  return res.status(StatusCodes.OK).send({messsage: "Login successful", token})
+} else {
+  res.status(StatusCodes.BAD_REQUEST).send({message: "Login failed"})
+}
+// jwt auth ends
     }
   } catch(e) { 
     return res.status(StatusCodes.BAD_REQUEST).send({message: "Login failed"})

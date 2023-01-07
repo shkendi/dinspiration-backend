@@ -98,6 +98,9 @@ export function checkPasswords(password: string, passwordConfirmation: string) {
   return password === passwordConfirmation
 }
 
-
+// function for validating password
+export function validatePassword(loginPassword: string, originalPassword: string) { 
+  return bcrypt.compareSync(loginPassword, originalPassword)
+}
 
 export default mongoose.model("User", userSchema)
