@@ -6,7 +6,7 @@ import { getFoods, getFoodByName, updateFoodByName, createFoods, deleteFoodByNam
 // change functions to filter by id instead of name
 
 import Users from "../models/users"
-import { signupUser } from "../controllers/userController"
+import { signupUser, loginUser } from "../controllers/userController"
 
 const router = express.Router()
 
@@ -30,6 +30,9 @@ router.route('/foods/:name')
 
 router.route('/signup')
 .post(signupUser)
+
+router.route('/login')
+.post(loginUser)
 
 
 export default router
