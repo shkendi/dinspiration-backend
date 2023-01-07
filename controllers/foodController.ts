@@ -41,6 +41,8 @@ export async function deleteFoodByName(req: Request, res: Response) {
     console.log(e.message)
   }
 }
+// ? why do I need to delete 2x for a food to be removed from the database? do I need to use a different method?
+
 
 export async function getFoods(req: Request, res: Response) { 
   try {

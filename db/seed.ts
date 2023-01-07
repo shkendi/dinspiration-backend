@@ -80,6 +80,25 @@ const inspirationData = [
 // ]
 // !
 
+const userData = [
+  {
+    username: "Pam",
+    email: "pam@string.string",
+    password: "Helloworld123!", 
+    userOptions: { 
+      anything: false,
+      fruits: true, 
+      vegetables: true, 
+      meat: true, 
+      dairy: true, 
+      eggs: true, 
+      gluten: true, 
+      nuts: true, 
+      shellfish: true
+    }, 
+    userLifestyle: 2
+  }
+]
 
 async function seed() {
   await mongoose.connect("mongodb://127.0.0.1:27017/dinspiration-db")
@@ -98,8 +117,8 @@ async function seed() {
     console.log(inspirations)
 
     // ! Pam's user seeding code - only works when users.ts is updated
-    // const users = await Users.create(userData)
-    // console.log(users)
+    const users = await Users.create(userData)
+    console.log(users)
     // !
 
   }
