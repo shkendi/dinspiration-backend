@@ -1,6 +1,7 @@
 import mongoose from "mongoose"
 import Foods from "../models/foods"
 import Users from "../models/users"
+import Inspirations from "../models/inspirations"
 
 
 // ! Jane made changes to the seed so that foods are validated before being added to the database
@@ -48,6 +49,17 @@ const foodData = [
 
 ]
 
+const inspirationData = [
+  {
+    name: "Soup",
+    recipeURL: "https://www.bbcgoodfood.com/recipes/pumpkin-soup",
+    description: "This is a test inspiration!",
+    userImage: "string",
+    userId: "user1",
+    primaryFood: "food1"
+  }
+]
+
 // ! Pam's added userSeed code - only works when users.ts is updated
 // const userData = [
 //   {
@@ -81,6 +93,9 @@ async function seed() {
   try {
     const foods = await Foods.create(foodData)
     console.log(foods)
+
+    const inspirations = await Inspirations.create(inspirationData)
+    console.log(inspirations)
 
     // ! Pam's user seeding code - only works when users.ts is updated
     // const users = await Users.create(userData)
