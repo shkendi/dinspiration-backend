@@ -3,21 +3,23 @@ import validator from "validator"
 import uniqueValidator from "mongoose-unique-validator"
 import mongooseHidden from "mongoose-hidden"
 
-const userFoodsSchema = new mongoose.Schema({ 
-  anything: { type: Boolean }, 
-  fruits: { type: Boolean }, 
-  vegetables: { type: Boolean }, 
-  meat: { type: Boolean }, 
-  dairy: { type: Boolean }, 
-  eggs: { type: Boolean }, 
-  gluten: { type: Boolean }, 
-  nuts: { type: Boolean }, 
-  shellfish: { type: Boolean }
-})
 
-const userLifestyleSchema = new mongoose.Schema({ 
+// ! Jane commenting out user food schema to test seed
+// const userFoodsSchema = new mongoose.Schema({ 
+//   anything: { type: Boolean }, 
+//   fruits: { type: Boolean }, 
+//   vegetables: { type: Boolean }, 
+//   meat: { type: Boolean }, 
+//   dairy: { type: Boolean }, 
+//   eggs: { type: Boolean }, 
+//   gluten: { type: Boolean }, 
+//   nuts: { type: Boolean }, 
+//   shellfish: { type: Boolean }
+// })
+
+// const userLifestyleSchema = new mongoose.Schema({ 
   
-})
+// })
 
 const userSchema = new mongoose.Schema({
 
