@@ -15,42 +15,38 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const foods_1 = __importDefault(require("./models/foods"));
-const users_1 = __importDefault(require("./models/users"));
-// ! Changes made by Pam on morning Friday 6 Jan
-// 1) added the start function so that index.ts connects to mongodb
-// 2) added '/api' to the app.use function and removed it from the individual routes
-// 3) added a signup route
+const router_1 = __importDefault(require("./views/router"));
 const app = (0, express_1.default)();
-const router = express_1.default.Router();
-const foodData = [
-    { name: "Orange", id: 1 },
-    { name: "Spaghetti", id: 2 },
-    { name: "Fig", id: 3 },
-    { name: "Tofu", id: 4 }
-];
-const userData = [];
-const inspirationData = [];
-router.route('/my-foods')
+// ? Jane's note ->  routes and seed data should be moved in our catchup
+// ? Jane to bring up whether we should change the names of endpoints, e.g. to have a /foods endpoint that is not visible to users that shows all foods. I found this really useful while working
+// ? not frome Jane: current /my-foods will be updated
+router_1.default.route('/my-foods')
     .get((req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const foods = yield foods_1.default.find();
     res.send(foods);
 }));
-// ! Pam's added user code
-router.route('/signup')
-    .post((req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        const newUser = yield users_1.default.create(req.body);
-        console.log(newUser);
-        res.send(newUser);
-    }
-    catch (e) {
-        res.send(e.message);
-        console.log(e.message);
-    }
-}));
+// ! Jane's added food code
+// getting the foods by name, and editing foods if needed (for admins)
+// should we change this to id? name is great for ux, but tricky considering spaces and cases
+// will need to move everything in the router at the same time, otherwise some bits of code won't work. Should do on Saturday or tonight if we have time
+// ? why do I need to delete 2x for a food to be removed from the database? do I need to use a different method?
+// .patch (async (req, res) => {
+//   const name = req.params.name
+//   console.log(name)
+//   const food = await Foods.findOneAndUpdate(req.body)
+//   console.log(food)
+//   res.send(food)
+// })
+// note - interested in using Patch, but unsure of exact method and how to $set the new params, think it will be interesting if we find corrupt data
+// deleting and putting may be useful for admins if we create them in our stretch goals
+// ? add getting foods by user ** will need Pam's help here
+// nb - food, user and inspiration names should be in lowercase it ref'd by endpoint; we can transform text later in frontend to be uppercase
+// nb - should we reference by name or by id? name starts to be tricky when thinking about spaces? on first glance I'm thinking id is best
+// not an issue for foods as we're in control of adding new foods to the database, but something to look out for!
+// note: are we linking insprations by _id or by name?
 // !
 app.use(express_1.default.json());
-app.use("/api", router);
+app.use("/api", router_1.default);
 function start() {
     return __awaiter(this, void 0, void 0, function* () {
         yield mongoose_1.default.connect("mongodb://127.0.0.1:27017/dinspiration-db");
