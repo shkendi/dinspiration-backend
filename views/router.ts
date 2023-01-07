@@ -7,18 +7,13 @@ import { getFoods, getFoodByName, updateFoodByName, createFoods, deleteFoodByNam
 
 import Users from "../models/users"
 import { signupUser, loginUser } from "../controllers/userController"
+import secureRoute from "../middleware/secureRoute"
 
 const router = express.Router()
 
 router.route('/foods')
 .get(getFoods)
 .post(createFoods)
-
-router.route('/my-foods')
-  .get(async (req: Request, res: Response) => { 
-    const foods = await Foods.find()
-    res.send(foods) 
-  })
 
 // remember to change so searching by id
 router.route('/foods/:name')

@@ -1,5 +1,7 @@
+require('dotenv').config()
+
 import Users from "../models/users"
-import { Request, Response } from "express"
+import { NextFunction, Request, Response } from "express"
 import { StatusCodes } from "http-status-codes"
 import { checkPasswords, validatePassword } from "../models/users"
 // import formatValidationError from "../errors/validation"
