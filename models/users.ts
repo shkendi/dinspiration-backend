@@ -91,4 +91,13 @@ userSchema.pre('save', function hashPassword(next) {
   next() 
 })
 
+
+// function for confirming password
+// exported to userController.ts
+export function checkPasswords(password: string, passwordConfirmation: string) { 
+  return password === passwordConfirmation
+}
+
+
+
 export default mongoose.model("User", userSchema)
