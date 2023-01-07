@@ -61,21 +61,22 @@ const userSchema = new mongoose.Schema({
   }, 
 
   userOptions: { 
-    anything: { type: Boolean, required: true, default: true }, 
-    fruits: { type: Boolean, required: true, default: false }, 
-    vegetables: { type: Boolean, required: true, default: false }, 
-    meat: { type: Boolean,required: true, default: false }, 
-    dairy: { type: Boolean, required: true, dafault: false }, 
-    eggs: { type: Boolean, required: true, default: false }, 
-    gluten: { type: Boolean, required: true, default: false }, 
-    nuts: { type: Boolean, required: true, default: false }, 
-    shellfish: { type: Boolean, required: true, default: false }
+    anything: { type: Boolean, required: true, default: () => true }, 
+    fruits: { type: Boolean, required: true, default: () => false }, 
+    vegetables: { type: Boolean, required: true, default: () => false }, 
+    meat: { type: Boolean,required: true, default: () => false }, 
+    dairy: { type: Boolean, required: true, default: () => false }, 
+    eggs: { type: Boolean, required: true, default: () => false }, 
+    gluten: { type: Boolean, required: true, default: () => false }, 
+    nuts: { type: Boolean, required: true, default: () => false }, 
+    shellfish: { type: Boolean, required: true, default: () => false }
   }, 
   
   userLifestyle: { 
     type: Number, 
     required: true,
-    validate: (userChoice: Number) => userChoice > -1 && userChoice < 6
+    validate: (userChoice: Number) => userChoice > -1 && userChoice < 6, 
+    default: () => 5
   }
 })
 

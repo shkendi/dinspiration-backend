@@ -6,7 +6,7 @@ import { getFoods, getFoodByName, updateFoodByName, createFoods, deleteFoodByNam
 // change functions to filter by id instead of name
 
 import Users from "../models/users"
-import { signupUser, loginUser } from "../controllers/userController"
+import { signupUser, loginUser, setOptionsLifestyle, getCurrentUser } from "../controllers/userController"
 import secureRoute from "../middleware/secureRoute"
 
 const router = express.Router()
@@ -29,5 +29,16 @@ router.route('/signup')
 router.route('/login')
 .post(loginUser)
 
+// // ! if you're logged in, get the current user
+// router.route('/user').get(secureRoute, getCurrentUser)
+
+router.route('/my-options')
+.patch(secureRoute, setOptionsLifestyle)
+
+router.route('/my-lifestyle')
+.patch(secureRoute, setOptionsLifestyle)
+
+router.route('/user')
+.get(getCurrentUser)
 
 export default router
