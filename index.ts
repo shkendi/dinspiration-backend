@@ -5,66 +5,8 @@ import Foods from "./models/foods"
 import Users from "./models/users"
 import router from "./views/router"
 
-
-
-// ! Changes made by Pam on morning Friday 6 Jan
-// 1) added the start function so that index.ts connects to mongodb
-// 2) added '/api' to the app.use function and removed it from the individual routes
-// 3) added a signup route
-
-
 const app = express()
 
-// const router = express.Router()
-
-// // ! Jane copied the new seed data to the index for finding foods by name
-// const foodData = [
-//   { name: "orange",
-//     imageURL: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Orange-Whole-%26-Split.jpg",
-//     options: {
-//       fruit: true,
-//       vegetable: false,
-//       meat: false,
-//       dairy: false,
-//       eggs: false,
-//       gluten: false,
-//       nut: false,
-//       shellfish: false,
-//     },
-//     lifestyle: {
-//       lowGi: true,
-//       lowCarb: true,
-//       highProtein: false,
-//       lowCalorie: true,
-//       keto: false
-//     }
-//   },
-//   { name: "spaghetti",
-//   imageURL: "https://upload.wikimedia.org/wikipedia/commons/d/d1/Spaghetti_with_Meatballs_%28cropped%29.jpg",
-//   options: {
-//     fruit: false,
-//     vegetable: false,
-//     meat: false,
-//     dairy: false,
-//     eggs: false,
-//     gluten: true,
-//     nut: false,
-//     shellfish: false,
-//   },
-//   lifestyle: {
-//     lowGi: true,
-//     lowCarb: false,
-//     highProtein: false,
-//     lowCalorie: false,
-//     keto: false
-//   }
-// }
-
-// ]
-
-// const userData = []
-
-// const inspirationData = []
 
 // ? Jane's note ->  routes and seed data should be moved in our catchup
 // ? Jane to bring up whether we should change the names of endpoints, e.g. to have a /foods endpoint that is not visible to users that shows all foods. I found this really useful while working
@@ -76,20 +18,7 @@ router.route('/my-foods')
     res.send(foods) 
   })
 
-// ! Pam's added user code
-router.route('/signup')
-  .post(async (req, res) => {
-    try {
-      const newUser = await Users.create(req.body)
-      console.log(newUser)
-      res.send(newUser)
-    }catch(e: any) { 
-      res.send(e.message)
-      console.log(e.message)
-    }
 
-  })
-// !
 
 
 // ! Jane's added food code
