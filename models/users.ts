@@ -5,17 +5,6 @@ import mongooseHidden from "mongoose-hidden"
 
 import bcrypt from "bcrypt"
 
-const userOptionsSchema = new mongoose.Schema({ 
-  anything: { type: Boolean, required: true, default: true }, 
-  fruits: { type: Boolean, required: true, default: false }, 
-  vegetables: { type: Boolean, required: true, default: false }, 
-  meat: { type: Boolean,required: true, default: false }, 
-  dairy: { type: Boolean, required: true, dafault: false }, 
-  eggs: { type: Boolean, required: true, default: false }, 
-  gluten: { type: Boolean, required: true, default: false }, 
-  nuts: { type: Boolean, required: true, default: false }, 
-  shellfish: { type: Boolean, required: true, default: false }
-})
 
 // the userLifestyle variable corresponds to the following array: 
 // ["low gi", "low carb", "high protein", "low calorie", "keto", "skip"]
@@ -71,12 +60,22 @@ const userSchema = new mongoose.Schema({
     ]
   }, 
 
-  userFoods: { 
-    type: userOptionsSchema, 
+  userOptions: { 
+    anything: { type: Boolean, required: true, default: true }, 
+    fruits: { type: Boolean, required: true, default: false }, 
+    vegetables: { type: Boolean, required: true, default: false }, 
+    meat: { type: Boolean,required: true, default: false }, 
+    dairy: { type: Boolean, required: true, dafault: false }, 
+    eggs: { type: Boolean, required: true, default: false }, 
+    gluten: { type: Boolean, required: true, default: false }, 
+    nuts: { type: Boolean, required: true, default: false }, 
+    shellfish: { type: Boolean, required: true, default: false }
   }, 
   
   userLifestyle: { 
-    type: userLifestyleSchema,
+    type: Number, 
+    required: true,
+    validate: (userChoice: Number) => userChoice > -1 && userChoice < 6
   }
 })
 
