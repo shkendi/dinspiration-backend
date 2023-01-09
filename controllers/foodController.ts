@@ -1,8 +1,6 @@
 import { Request, Response } from "express"
 import { StatusCodes } from "http-status-codes"
 import Foods from "../models/foods"
-// ! Pam added code to get the my-foods query to work
-import Users from "../models/users"
 
 export async function getFoodByName(req: Request, res: Response) {
   try {
@@ -107,6 +105,17 @@ export async function getMyFoods(req: Request, res: Response) {
     console.log(e.message)
   }
 }
+
+
+
+
+
+
+
+
+
+
+
 
 export async function getFoodById(req: Request, res: Response) {
   try {
