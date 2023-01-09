@@ -1,7 +1,8 @@
 import express from "express"
 import { Request, Response } from "express"
 import Foods from "../models/foods"
-import { getFoods, getFoodByName, updateFoodByName, createFoods, deleteFoodByName } from "../controllers/foodController"
+// ! Pam added getMyFoods to line 5 throw-away code
+import { getFoods, getFoodByName, updateFoodByName, createFoods, deleteFoodByName, getMyFoods, getFoodById} from "../controllers/foodController"
 // be sure to separate functions so that we see essential ones at top of code
 // change functions to filter by id instead of name
 
@@ -14,6 +15,14 @@ const router = express.Router()
 router.route('/foods')
 .get(secureRoute, getFoods)
 .post(createFoods)
+
+// ! Pam's throw away code
+
+router.route('/my-foods')
+.get(secureRoute, getMyFoods)
+
+router.route('/foods/:id').get(getFoodById)
+// !
 
 // remember to change so searching by id
 router.route('/foods/:name')
@@ -29,7 +38,7 @@ router.route('/signup')
 router.route('/login')
 .post(loginUser)
 
-// // ! if you're logged in, get the current user
+// ! if you're logged in, get the current user
 // router.route('/user').get(secureRoute, getCurrentUser)
 
 router.route('/my-options')
@@ -39,6 +48,6 @@ router.route('/my-lifestyle')
 .patch(secureRoute, setOptionsLifestyle)
 
 router.route('/user')
-.get(getCurrentUser)
+.get(secureRoute, getCurrentUser)
 
 export default router

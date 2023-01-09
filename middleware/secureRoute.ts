@@ -27,7 +27,6 @@ if (!rawToken) {
 return res.status(401).json({ message: "Unauthorized - there is no Jwt raw token" })
 }
 const token = rawToken.replace("Bearer ", '') 
-console.log(token)
 
 jwt.verify(token, secret, async (err, payload) => { 
 if (err || !payload) { 
@@ -35,7 +34,9 @@ return res.status(401).json({ message: "Unauthorized - the jwt payload was missi
 }
 const jwtPayload = payload as JwtPayload
 const user = await Users.findById(jwtPayload.userId)
+// console.log(user)
 req.currentUser = user
+
     next()
 })
 }

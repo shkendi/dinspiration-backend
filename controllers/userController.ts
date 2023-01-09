@@ -69,6 +69,7 @@ export async function setOptionsLifestyle(req: Request, res: Response) {
 export async function getCurrentUser(req: Request, res: Response) {
   try {
     console.log("this works ok")
+    console.log(req.currentUser)
     res.status(StatusCodes.OK).send(req.currentUser)
   } catch (e) {
     res.status(StatusCodes.INTERNAL_SERVER_ERROR).send({ message: "Request failed" })

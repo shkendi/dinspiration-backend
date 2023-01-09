@@ -9,13 +9,6 @@ import bcrypt from "bcrypt"
 // the userLifestyle variable corresponds to the following array: 
 // ["low gi", "low carb", "high protein", "low calorie", "keto", "skip"]
 // and must be an integer between 0 and 4
-const userLifestyleSchema = new mongoose.Schema({ 
-    userChoice: { 
-      type: Number, 
-      required: true,
-      validate: (userChoice: Number) => userChoice > -1 && userChoice < 6
-    }
-})
 
 const userSchema = new mongoose.Schema({
 
@@ -60,18 +53,20 @@ const userSchema = new mongoose.Schema({
     ]
   }, 
 
-  userOptions: { 
-    anything: { type: Boolean, required: true, default: () => true }, 
-    fruits: { type: Boolean, required: true, default: () => false }, 
-    vegetables: { type: Boolean, required: true, default: () => false }, 
-    meat: { type: Boolean,required: true, default: () => false }, 
-    dairy: { type: Boolean, required: true, default: () => false }, 
-    eggs: { type: Boolean, required: true, default: () => false }, 
-    gluten: { type: Boolean, required: true, default: () => false }, 
-    nuts: { type: Boolean, required: true, default: () => false }, 
-    shellfish: { type: Boolean, required: true, default: () => false }
-  }, 
+  // userOptions: { 
+  //   anything: { type: Boolean, required: true, default: () => true }, 
+  //   fruits: { type: Boolean, required: true, default: () => false }, 
+  //   vegetables: { type: Boolean, required: true, default: () => false }, 
+  //   meat: { type: Boolean,required: true, default: () => false }, 
+  //   dairy: { type: Boolean, required: true, default: () => false }, 
+  //   eggs: { type: Boolean, required: true, default: () => false }, 
+  //   gluten: { type: Boolean, required: true, default: () => false }, 
+  //   nuts: { type: Boolean, required: true, default: () => false }, 
+  //   shellfish: { type: Boolean, required: true, default: () => false }
+  // }, 
   
+userOptions: { type: Array, required: true, default: () => "anything" }, 
+
   userLifestyle: { 
     type: Number, 
     required: true,
