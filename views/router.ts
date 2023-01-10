@@ -1,13 +1,10 @@
 import express from "express"
 import { Request, Response } from "express"
 import Foods from "../models/foods"
-<<<<<<< HEAD
 // import { getFoods, getFoodByName, updateFoodByName, createFoods, deleteFoodByName } from "../controllers/foodController"
 import Inspirations from "../models/inspirations"
 import { createInspirations, getInspirations , getInspirationsById } from "../controllers/inspirationController"
 // ! Pam added getMyFoods to line 5 throw-away code
-=======
->>>>>>> master
 import { getFoods, getFoodByName, updateFoodByName, createFoods, deleteFoodByName, getMyFoods, getFoodById} from "../controllers/foodController"
 // be sure to separate functions so that we see essential ones at top of code
 // change functions to filter by id instead of name
