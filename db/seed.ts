@@ -6,18 +6,25 @@ import Inspirations from "../models/inspirations"
 
 // ! Jane made changes to the seed so that foods are validated before being added to the database
 const foodData = [
-  { name: "orange",
+
+  {
+    name: "orange",
     imageURL: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Orange-Whole-%26-Split.jpg",
-    options: {
-      fruit: true,
-      vegetable: false,
-      meat: false,
-      dairy: false,
-      eggs: false,
-      gluten: false,
-      nut: false,
-      shellfish: false,
-    },
+    // options: {
+    //   fruit: true,
+    //   vegetable: false,
+    //   meat: false,
+    //   dairy: false,
+    //   eggs: false,
+    //   gluten: false,
+    //   nut: false,
+    //   shellfish: false,
+    // },
+
+    // ! pam's suggested alternative
+    options: ["fruit", "anything"],
+    // ! 
+
     lifestyle: {
       lowGi: true,
       lowCarb: true,
@@ -26,26 +33,151 @@ const foodData = [
       keto: false
     }
   },
-  { name: "spaghetti",
-  imageURL: "https://upload.wikimedia.org/wikipedia/commons/d/d1/Spaghetti_with_Meatballs_%28cropped%29.jpg",
-  options: {
-    fruit: false,
-    vegetable: false,
-    meat: false,
-    dairy: false,
-    eggs: false,
-    gluten: true,
-    nut: false,
-    shellfish: false,
+
+  {
+    name: "pomegranate",
+    imageURL: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Orange-Whole-%26-Split.jpg",
+    // options: {
+    //   fruit: true,
+    //   vegetable: false,
+    //   meat: false,
+    //   dairy: false,
+    //   eggs: false,
+    //   gluten: false,
+    //   nut: false,
+    //   shellfish: false,
+    // },
+    // ! pam's suggested alternative code
+    options: ["fruit", "anything"],
+    // ! 
+    lifestyle: {
+      lowGi: true,
+      lowCarb: true,
+      highProtein: false,
+      lowCalorie: true,
+      keto: false
+    }
   },
+
+  {
+    name: "venison",
+    imageURL: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Orange-Whole-%26-Split.jpg",
+    options: ["meat", "anything"],
+    lifestyle: {
+      lowGi: true,
+      lowCarb: true,
+      highProtein: true,
+      lowCalorie: true,
+      keto: true
+    }
+  },
+
+  {
+    name: "papaya",
+    imageURL: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Orange-Whole-%26-Split.jpg",
+    options: ["fruit", "anything"],
+    lifestyle: {
+      lowGi: true,
+      lowCarb: true,
+      highProtein: false,
+      lowCalorie: true,
+      keto: false
+    }
+  },
+
+
+  {
+    name: "chick peas",
+    imageURL: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Orange-Whole-%26-Split.jpg",
+    options: ["vegetables", "anything"],
+    lifestyle: {
+      lowGi: true,
+      lowCarb: false,
+      highProtein: true,
+      lowCalorie: true,
+      keto: false
+    }
+  },
+
+
+    { name: "aubergine",
+      imageURL: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Orange-Whole-%26-Split.jpg",
+      options: ["vegetable", "anything"],
+      lifestyle: {
+        lowGi: true,
+        lowCarb: true,
+        highProtein: false,
+        lowCalorie: true,
+        keto: true
+      }
+    },
+
+    { name: "spaghetti",
+    imageURL: "https://upload.wikimedia.org/wikipedia/commons/d/d1/Spaghetti_with_Meatballs_%28cropped%29.jpg",
+    options: ["gluten", "anything"],
+    lifestyle: {
+      lowGi: true,
+      lowCarb: false,
+      highProtein: false,
+      lowCalorie: false,
+      keto: false
+    }
+  }, 
+  { name: "halloumi",
+  imageURL: "https://upload.wikimedia.org/wikipedia/commons/d/d1/Spaghetti_with_Meatballs_%28cropped%29.jpg",
+  options: ["dairy", "anything"],
   lifestyle: {
     lowGi: true,
-    lowCarb: false,
-    highProtein: false,
+    lowCarb: true,
+    highProtein: true,
     lowCalorie: false,
-    keto: false
+    keto: true
   }
+}, 
+{ name: "kale",
+imageURL: "https://upload.wikimedia.org/wikipedia/commons/d/d1/Spaghetti_with_Meatballs_%28cropped%29.jpg",
+options: ["vegetables", "anything"],
+lifestyle: {
+  lowGi: true,
+  lowCarb: true,
+  highProtein: false,
+  lowCalorie: true,
+  keto: true
 }
+}, 
+{ name: "seaweed",
+imageURL: "https://upload.wikimedia.org/wikipedia/commons/d/d1/Spaghetti_with_Meatballs_%28cropped%29.jpg",
+options: ["vegetables", "anything"],
+lifestyle: {
+  lowGi: true,
+  lowCarb: true,
+  highProtein: false,
+  lowCalorie: true,
+  keto: true
+}
+}, 
+{ name: "cabbage",
+imageURL: "https://upload.wikimedia.org/wikipedia/commons/d/d1/Spaghetti_with_Meatballs_%28cropped%29.jpg",
+options: ["vegetables", "anything"],
+lifestyle: {
+  lowGi: true,
+  lowCarb: true,
+  highProtein: false,
+  lowCalorie: true,
+  keto: true
+}
+}, 
+{ name: "watercress",
+imageURL: "https://upload.wikimedia.org/wikipedia/commons/d/d1/Spaghetti_with_Meatballs_%28cropped%29.jpg",
+options: ["vegetables", "anything"],
+lifestyle: {
+  lowGi: true,
+  lowCarb: true,
+  highProtein: false,
+  lowCalorie: true,
+  keto: true
+}
+}, 
 
 ]
 
@@ -84,18 +216,8 @@ const userData = [
   {
     username: "Pam",
     email: "pam@string.string",
-    password: "Helloworld123!", 
-    userOptions: { 
-      anything: false,
-      fruits: true, 
-      vegetables: true, 
-      meat: true, 
-      dairy: true, 
-      eggs: true, 
-      gluten: true, 
-      nuts: true, 
-      shellfish: true
-    }, 
+    password: "Helloworld123!",
+    userOptions: ["fruits", "vegetables", "meat"],
     userLifestyle: 2
   }
 ]
@@ -113,13 +235,9 @@ async function seed() {
     const foods = await Foods.create(foodData)
     console.log(foods)
 
-    const inspirations = await Inspirations.create(inspirationData)
-    console.log(inspirations)
-
     // ! Pam's user seeding code - only works when users.ts is updated
     const users = await Users.create(userData)
     console.log(users)
-    // !
 
   }
   catch (e: any) {

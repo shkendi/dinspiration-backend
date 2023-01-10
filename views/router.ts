@@ -1,26 +1,31 @@
 import express from "express"
 import { Request, Response } from "express"
 import Foods from "../models/foods"
-import { getFoods, getFoodByName, updateFoodByName, createFoods, deleteFoodByName } from "../controllers/foodController"
+// import { getFoods, getFoodByName, updateFoodByName, createFoods, deleteFoodByName } from "../controllers/foodController"
 import Inspirations from "../models/inspirations"
-import { createInspirations, deleteInspirationByName, getInspirations, updateInspirationByName } from "../controllers/inspirationController"
+import { createInspirations, getInspirations , getInspirationsById } from "../controllers/inspirationController"
+// ! Pam added getMyFoods to line 5 throw-away code
+import { getFoods, getFoodByName, updateFoodByName, createFoods, deleteFoodByName, getMyFoods, getFoodById} from "../controllers/foodController"
 // be sure to separate functions so that we see essential ones at top of code
 // change functions to filter by id instead of name
 
 import Users from "../models/users"
-import { signupUser } from "../controllers/userController"
+import { signupUser, loginUser, setOptionsLifestyle, getCurrentUser } from "../controllers/userController"
+import secureRoute from "../middleware/secureRoute"
 
 const router = express.Router()
 
 router.route('/foods')
-.get(getFoods)
+.get(secureRoute, getFoods)
 .post(createFoods)
 
+// ! Pam's throw away code
+
 router.route('/my-foods')
-  .get(async (req: Request, res: Response) => { 
-    const foods = await Foods.find()
-    res.send(foods) 
-  })
+.get(secureRoute, getMyFoods)
+
+router.route('/foods/:id').get(getFoodById)
+// !
 
 // remember to change so searching by id
 router.route('/foods/:name')
@@ -34,16 +39,34 @@ router.route('/inspirations')
 
 // Search by id
 router.route('/inspirations/:id')
-.get(getInspirations)
-.put(updateInspirationByName)
-.delete(deleteInspirationByName)
+.get(getInspirationsById)
 
-router.route('inspirations/:userId')
-.get(getInspirations)
+
+// .put(updateInspirationById)
+// .delete(deleteInspirationById)
+
+// router.route('inspirations/:userId')
+// .get(getInspirationsByUserId)
+
+
 // user routes
 
 router.route('/signup')
 .post(signupUser)
 
+router.route('/login')
+.post(loginUser)
+
+// ! if you're logged in, get the current user
+// router.route('/user').get(secureRoute, getCurrentUser)
+
+router.route('/my-options')
+.patch(secureRoute, setOptionsLifestyle)
+
+router.route('/my-lifestyle')
+.patch(secureRoute, setOptionsLifestyle)
+
+router.route('/user')
+.get(secureRoute, getCurrentUser)
 
 export default router
