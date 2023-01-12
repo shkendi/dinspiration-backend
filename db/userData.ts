@@ -3,8 +3,8 @@ export const userData = [
     username: "pam",
     email: "pam@string.string",
     password: "Helloworld123!",
-    userOptions: ["fruits", "vegetables", "meat"],
-    userLifestyle: 2
+    userOptions: ["anything"],
+    userLifestyle: 5
   },
   {
     username: "jane",
@@ -12,6 +12,6 @@ export const userData = [
     password: "helloworlD1!",
     passwordConfirmation: "helloworlD1!",
     userOptions: [ "fruits", "vegetables", "gluten", "nuts"],
-    userLifestyle: 2
+    userLifestyle: 1
   }
 ]

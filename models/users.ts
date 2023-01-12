@@ -65,7 +65,7 @@ const userSchema = new mongoose.Schema({
   //   shellfish: { type: Boolean, required: true, default: () => false }
   // }, 
 
-  userOptions: { type: Array, required: true, default: () => "anything" },
+  userOptions: { type: Array, required: true, default: () => [] },
 
   userLifestyle: {
     type: Number,
