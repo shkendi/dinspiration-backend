@@ -18,10 +18,20 @@ export async function signupUser(req: Request, res: Response) {
       const newUser = await Users.create(req.body)
       return res.status(StatusCodes.OK).send(newUser)
     } else {
-      return res.status(StatusCodes.UNPROCESSABLE_ENTITY).send({ message: "Password confirmation did not match the password" })
+      return res.status(StatusCodes.UNPROCESSABLE_ENTITY).send({ message: "Passwords don't match", errors: "Passwords don't match" })
     }
   } catch (e: any) {
-    return res.status(StatusCodes.UNPROCESSABLE_ENTITY).send(e.message)
+
+// ! format the error response
+const customError: any = {}
+for (const key in e.errors) { 
+  customError[key] = e.errors[key].message
+  // looping through my errors and going through the properties
+  // and setting the message to be this custom key
+}
+console.log(customError)
+    
+    return res.status(StatusCodes.UNPROCESSABLE_ENTITY).send({message: "There was an error", errors: customError})
     console.log(e.message)
   }
 }

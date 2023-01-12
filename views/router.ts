@@ -18,7 +18,7 @@ const router = express.Router()
 // FOODS
 
 router.route('/foods')
-.get(secureRoute, getFoods)
+.get(getFoods)
 .post(createFoods)
 
 router.route('/my-foods')
@@ -60,7 +60,7 @@ router.route('/login')
 .post(loginUser)
 
 // ! if you're logged in, get the current user
-// router.route('/user').get(secureRoute, getCurrentUser)
+router.route('/user').get(secureRoute, getCurrentUser)
 
 router.route('/my-options')
 .patch(secureRoute, setOptionsLifestyle)

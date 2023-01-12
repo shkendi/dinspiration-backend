@@ -25,11 +25,11 @@ const userSchema = new mongoose.Schema({
     unique: true
   },
 
-// the email address field should accept only string of email-shape that are unique
-// the email should be stored as lowercase string
+  // the email address field should accept only string of email-shape that are unique
+  // the email should be stored as lowercase string
   email: {
     type: String,
-    required: true,
+    required: [true, "Email is required"],
     lowercase: true,
     validate: (email: string) => validator.isEmail(email),
     unique: true
@@ -40,7 +40,7 @@ const userSchema = new mongoose.Schema({
   // ! must match the password confirmation field
   password: {
     type: String,
-    required: true,
+    required: [true, "Password and confirm password are required"],
     validate: [
       {
         message: "Password must be at least 8 characters in length",
@@ -48,10 +48,10 @@ const userSchema = new mongoose.Schema({
       },
       {
         message: "Password must contain at least 1 lowercase character, 1 uppercase character, a number and a symbol",
-        validator: (password: string) => validator.isStrongPassword(password, {minLowercase: 1, minUppercase: 1, minSymbols: 1, minNumbers: 1})
+        validator: (password: string) => validator.isStrongPassword(password, { minLowercase: 1, minUppercase: 1, minSymbols: 1, minNumbers: 1 })
       }
     ]
-  }, 
+  },
 
   // userOptions: { 
   //   anything: { type: Boolean, required: true, default: () => true }, 
@@ -64,38 +64,38 @@ const userSchema = new mongoose.Schema({
   //   nuts: { type: Boolean, required: true, default: () => false }, 
   //   shellfish: { type: Boolean, required: true, default: () => false }
   // }, 
-  
-userOptions: { type: Array, required: true, default: () => "anything" }, 
 
-  userLifestyle: { 
-    type: Number, 
+  userOptions: { type: Array, required: true, default: () => "anything" },
+
+  userLifestyle: {
+    type: Number,
     required: true,
-    validate: (userChoice: Number) => userChoice > -1 && userChoice < 6, 
+    validate: (userChoice: Number) => userChoice > -1 && userChoice < 6,
     default: () => 5
   }
 })
 
 // ensures that sensitive information will not be returned in the response
-userSchema.plugin(mongooseHidden({ defaultHidden: {password: true, email:true, _id: true, } }))
+userSchema.plugin(mongooseHidden({ defaultHidden: { password: true, email: true, _id: true, } }))
 
 // ensures that the username and email address provided are unique to the user
 userSchema.plugin(uniqueValidator, { type: 'mongoose-unique-validator' })
 
 // hashing the password before saving
-userSchema.pre('save', function hashPassword(next) { 
+userSchema.pre('save', function hashPassword(next) {
   this.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync())
-  next() 
+  next()
 })
 
 
 // function for confirming password
 // exported to userController.ts
-export function checkPasswords(password: string, passwordConfirmation: string) { 
+export function checkPasswords(password: string, passwordConfirmation: string) {
   return password === passwordConfirmation
 }
 
 // function for validating password
-export function validatePassword(loginPassword: string, originalPassword: string) { 
+export function validatePassword(loginPassword: string, originalPassword: string) {
   return bcrypt.compareSync(loginPassword, originalPassword)
 }
 
