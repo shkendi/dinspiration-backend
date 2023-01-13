@@ -1,4 +1,4 @@
-import mongoose from "mongoose"
+import mongoose, { isObjectIdOrHexString, Mongoose } from "mongoose"
 // import validator from "validator"
 // import uniqueValidator from "mongoose-unique-validator"
 
@@ -7,8 +7,8 @@ const inspirationSchema = new mongoose.Schema({
 	recipeURL: {type: String, required: false},
 	description: {type: String, required: false},
 	userImage: {type: String, required: false},
-	userId: {type: String, required: true},
-	primaryFood: {type: String, required: true},
+	userId: {type: mongoose.Schema.Types.ObjectId, required: true},
+	primaryFood: {type: mongoose.Schema.Types.ObjectId, required: true},
 	secondaryfood: {type: String, required: false}
 })
 

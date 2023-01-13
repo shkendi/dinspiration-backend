@@ -2,7 +2,7 @@ export const foodData = [
   {
     name: "orange",
     imageURL: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Orange-Whole-%26-Split.jpg",
-    options: ["fruit", "anything"],
+    options: ["fruits", "anything"],
     lifestyle: {
       lowGi: true,
       lowCarb: true,
@@ -15,7 +15,7 @@ export const foodData = [
   {
     name: "pomegranate",
     imageURL: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Orange-Whole-%26-Split.jpg",
-    options: ["fruit", "anything"],
+    options: ["fruits", "anything"],
     lifestyle: {
       lowGi: true,
       lowCarb: true,
@@ -41,7 +41,7 @@ export const foodData = [
   {
     name: "papaya",
     imageURL: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Orange-Whole-%26-Split.jpg",
-    options: ["fruit", "anything"],
+    options: ["fruits", "anything"],
     lifestyle: {
       lowGi: true,
       lowCarb: true,
@@ -68,7 +68,7 @@ export const foodData = [
 
     { name: "aubergine",
       imageURL: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Orange-Whole-%26-Split.jpg",
-      options: ["vegetable", "anything"],
+      options: ["vegetables", "anything"],
       lifestyle: {
         lowGi: true,
         lowCarb: true,

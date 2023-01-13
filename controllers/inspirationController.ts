@@ -1,6 +1,7 @@
 import { Request, Response } from "express"
 import inspirations from "../models/inspirations"
 import Inspirations from "../models/inspirations"
+import { StatusCodes } from "http-status-codes"
 
 // export async function getInspirationByName(req: Request, res: Response) {
 // 	try {
@@ -50,14 +51,16 @@ export async function getInspirationsById(req: Request, res: Response) {
 	}
 }
 
-export async function createInspirations(req: Request, res: Response) {
+export async function createInspiration(req: Request, res: Response) {
 	try {
-		const newInspiration = await Inspirations.create(req.body)
+    const newInspirationBody = req.body
+    newInspirationBody.userId = req.currentUser
+		const newInspiration = await Inspirations.create(newInspirationBody)
 		console.log(newInspiration)
 		res.send(newInspiration)
 	}
 	catch (e: any) {
-		res.send (e.massage)
+		res.status(StatusCodes.BAD_REQUEST).send({message: "Failed to create new inspiration"})
 		console.log(e.message)
 	}
 }
@@ -67,8 +70,11 @@ export async function getInspirations(req: Request, res: Response) {
 		const inspirations = await Inspirations.find()
 		res.send(inspirations)
 	  }
-	  catch (e: any) {
-		res.send(e.message)
-		console.log(e.message)
+	  catch (err: any) {
+		res.send(err.message)
+		console.log(err.message)
 	  }
 }
+
+// pam added this function to create a new inspiration
+
