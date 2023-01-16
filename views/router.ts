@@ -3,7 +3,7 @@ import { Request, Response } from "express"
 import Foods from "../models/foods"
 // import { getFoods, getFoodByName, updateFoodByName, createFoods, deleteFoodByName } from "../controllers/foodController"
 import Inspirations from "../models/inspirations"
-import { createInspiration, getInspirations , getInspirationsById } from "../controllers/inspirationController"
+import { createInspiration, getInspirations , getInspirationsById, filterInspirationsByFood, deleteInspirationById } from "../controllers/inspirationController"
 // ! Pam added getMyFoods to line 5 throw-away code
 import { getFoods, getFoodByName, updateFoodByName, createFoods, deleteFoodByName, getMyFoods, getFoodById} from "../controllers/foodController"
 // be sure to separate functions so that we see essential ones at top of code
@@ -36,29 +36,28 @@ router.route('/foods/:name')
 .delete(deleteFoodByName)
 
 
-// ! Pam added secure route to createInspirations route 
-// ! need this in order to add the user to the new inspiraiton
+// INSPIRATIONS ROUTES
+
+// get all the inspirations
 router.route('/inspirations')
 .get(getInspirations)
 
+// create an inspiration relating to a particular food
 router.route('/inspiration/:foodId')
 .post(secureRoute, createInspiration)
 
-// Search by id
+// get an inspiration by id
 router.route('/inspirations/:id')
 .get(getInspirationsById)
 
+// get a list of inspirations from a foodId in the params
+router.route('/inspirationsbyfood/:foodId')
+.get(secureRoute, filterInspirationsByFood)
 
+router.route('/inspiration/:id')
+.delete(secureRoute, deleteInspirationById)
 
-// .put(updateInspirationById)
-// .delete(deleteInspirationById)
-
-// router.route('inspirations/:userId')
-// .get(getInspirationsByUserId)
-
-
-// user routes
-
+// USER ROUTES
 router.route('/signup')
 .post(signupUser)
 

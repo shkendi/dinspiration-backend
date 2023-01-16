@@ -9,7 +9,8 @@ const inspirationSchema = new mongoose.Schema({
 	userImage: {type: String, required: false},
 	userId: {type: mongoose.Schema.Types.ObjectId, required: true},
 	primaryFood: {type: mongoose.Schema.Types.ObjectId, required: true},
-	secondaryfood: {type: String, required: false}
+  // the secondary food should prob be an array, something like : Array<mongoose.Schema.Types.ObjectId>
+	// secondaryfood: {type: String, required: false}
 })
 
 export default mongoose.model("Inspiration", inspirationSchema)
