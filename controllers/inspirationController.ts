@@ -10,9 +10,9 @@ export async function filterInspirationsByFood(req: Request, res: Response) {
 // GET request from Inspirations, filtered so that only those inspirations where foodId === primaryFood show up
 const foodId = req.params.foodId
 console.log(foodId)
-const filteredInspirations = await Inspirations.find({
-  primaryFood: foodId
-})
+const filteredInspirations = await Inspirations.find({primaryFood: foodId})
+// const filteredInspirations = await Inspirations.find()
+console.log(filteredInspirations)
 res.status(StatusCodes.OK).send(filteredInspirations)
 
   } catch(err: any) { 
@@ -21,6 +21,16 @@ res.status(StatusCodes.OK).send(filteredInspirations)
   }
 }
 
+
+
+//!     
+//const myFoods = await Foods.find({
+//   $and: [
+//     { options: { $in: currentUserOptions } },
+//     { [myFoodsUserLifestyle]: true }
+//   ]
+// })
+//! 
 
 export async function deleteInspirationById(req: Request, res: Response) { 
   try { 

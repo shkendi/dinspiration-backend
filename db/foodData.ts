@@ -14,7 +14,7 @@ export const foodData = [
 
   {
     name: "pomegranate",
-    imageURL: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Orange-Whole-%26-Split.jpg",
+    imageURL: "https://i0.wp.com/post.healthline.com/wp-content/uploads/2022/02/pomegranate-seeds-fruit-1296x728-header.jpg?w=1155&h=1528",
     options: ["fruits", "anything"],
     lifestyle: {
       lowGi: true,
@@ -27,7 +27,7 @@ export const foodData = [
 
   {
     name: "venison",
-    imageURL: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Orange-Whole-%26-Split.jpg",
+    imageURL: "https://i.ytimg.com/vi/RqdfnBtwBgI/maxresdefault.jpg",
     options: ["meat", "anything"],
     lifestyle: {
       lowGi: true,
@@ -54,7 +54,7 @@ export const foodData = [
 
   {
     name: "chick peas",
-    imageURL: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Orange-Whole-%26-Split.jpg",
+    imageURL: "https://i0.wp.com/post.medicalnewstoday.com/wp-content/uploads/sites/3/2022/04/chickpeas_closeup_1296x728_header-1024x575.jpg?w=1155&h=1528",
     options: ["vegetables", "anything"],
     lifestyle: {
       lowGi: true,
@@ -67,7 +67,7 @@ export const foodData = [
 
 
     { name: "aubergine",
-      imageURL: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Orange-Whole-%26-Split.jpg",
+      imageURL: "https://media.istockphoto.com/id/173879887/photo/eggplants-isolated.jpg?b=1&s=170667a&w=0&k=20&c=FxeL9FRfW3GMlfD4RdGnG8Ny_-ch4y6lV60QRj5GS1E=",
       options: ["vegetables", "anything"],
       lifestyle: {
         lowGi: true,
@@ -79,7 +79,7 @@ export const foodData = [
     },
 
     { name: "spaghetti",
-    imageURL: "https://upload.wikimedia.org/wikipedia/commons/d/d1/Spaghetti_with_Meatballs_%28cropped%29.jpg",
+    imageURL: "https://d3awvtnmmsvyot.cloudfront.net/api/file/mF2OEWEQue2wBk4kjeAj/convert?fit=max&w=1450&quality=60&cache=true&rotate=exif&compress=true",
     options: ["gluten", "anything"],
     lifestyle: {
       lowGi: true,
@@ -90,7 +90,7 @@ export const foodData = [
     }
   }, 
   { name: "halloumi",
-  imageURL: "https://upload.wikimedia.org/wikipedia/commons/d/d1/Spaghetti_with_Meatballs_%28cropped%29.jpg",
+  imageURL: "https://upload.wikimedia.org/wikipedia/commons/5/57/Halloumislice_zoom.jpg",
   options: ["dairy", "anything"],
   lifestyle: {
     lowGi: true,
@@ -101,7 +101,7 @@ export const foodData = [
   }
 }, 
 { name: "kale",
-imageURL: "https://upload.wikimedia.org/wikipedia/commons/d/d1/Spaghetti_with_Meatballs_%28cropped%29.jpg",
+imageURL: "https://cdn.hsnstore.com/blog/wp-content/uploads/sites/5/2018/09/kale-leaf.jpg",
 options: ["vegetables", "anything"],
 lifestyle: {
   lowGi: true,
@@ -112,7 +112,7 @@ lifestyle: {
 }
 }, 
 { name: "seaweed",
-imageURL: "https://upload.wikimedia.org/wikipedia/commons/d/d1/Spaghetti_with_Meatballs_%28cropped%29.jpg",
+imageURL: "https://wildwalks-southwest.co.uk/wp-content/uploads/2017/02/P1070734_small.jpg",
 options: ["vegetables", "anything"],
 lifestyle: {
   lowGi: true,
@@ -123,7 +123,7 @@ lifestyle: {
 }
 }, 
 { name: "cabbage",
-imageURL: "https://upload.wikimedia.org/wikipedia/commons/d/d1/Spaghetti_with_Meatballs_%28cropped%29.jpg",
+imageURL: "https://cdn.pixabay.com/photo/2018/10/03/21/57/cabbage-3722498__340.jpg",
 options: ["vegetables", "anything"],
 lifestyle: {
   lowGi: true,
@@ -134,7 +134,7 @@ lifestyle: {
 }
 }, 
 { name: "watercress",
-imageURL: "https://upload.wikimedia.org/wikipedia/commons/d/d1/Spaghetti_with_Meatballs_%28cropped%29.jpg",
+imageURL: "https://cdn-prod.medicalnewstoday.com/content/images/articles/285/285412/watercress-on-a-chopping-board.jpg",
 options: ["vegetables", "anything"],
 lifestyle: {
   lowGi: true,
