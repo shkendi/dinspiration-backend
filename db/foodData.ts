@@ -1,8 +1,8 @@
 export const foodData = [
   {
-    name: "orange",
-    imageURL: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Orange-Whole-%26-Split.jpg",
-    options: ["fruits", "anything"],
+    name: "Samphire",
+    imageURL: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Norfolk_Samphire.jpg/220px-Norfolk_Samphire.jpg",
+    options: ["vegetables", "anything"],
     lifestyle: {
       lowGi: true,
       lowCarb: true,
@@ -40,7 +40,7 @@ export const foodData = [
 
   {
     name: "papaya",
-    imageURL: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Orange-Whole-%26-Split.jpg",
+    imageURL: "https://media.istockphoto.com/id/515832816/photo/papaya.jpg?b=1&s=612x612&w=0&k=20&c=k3u3BnC-NOKtOKZ7Cxs9r_kWqhyx5AaANy2tHK-Ha_A=",
     options: ["fruits", "anything"],
     lifestyle: {
       lowGi: true,
@@ -78,8 +78,8 @@ export const foodData = [
       }
     },
 
-    { name: "spaghetti",
-    imageURL: "https://d3awvtnmmsvyot.cloudfront.net/api/file/mF2OEWEQue2wBk4kjeAj/convert?fit=max&w=1450&quality=60&cache=true&rotate=exif&compress=true",
+    { name: "quinoa",
+    imageURL: "https://www.gimmesomeoven.com/wp-content/uploads/2020/03/How-To-Cook-Quinoa-Recipe-1.jpg",
     options: ["gluten", "anything"],
     lifestyle: {
       lowGi: true,
