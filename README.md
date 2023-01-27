@@ -54,6 +54,7 @@ git@github.com:PamelaOnGit/dinspiration-frontend.git
 * Bulma
 * bcrypt
 * JsonWebToken
+* Jest and Supertest
 
 ## Brief
 
@@ -128,3 +129,12 @@ The user can share her own recipe or serving suggestion, along with a photo of h
 3. We agreed that I would take the lead on the user flow, Jane on the foods and Shkendi on the recipes (which we called, inspirations).  
 
 #### Models
+
+
+#### Testing
+
+1. I used Jest and Supertest to add end-to-end testing to the backend. This was my first attempt to configure end-to-end testing on my own.  I started by installing Jest and Supertest and writing some simple tests in the users.test.ts file.  
+
+2. I created a separate testing environment with a separate database for the purpose of testing.  I created the .env file and an environment file containing a function that can vary the URI and port depending on whether process.env.NODE_ENV is equal to 'test' or 'production': 
+
+![](screenshots/Environment-function.png)
