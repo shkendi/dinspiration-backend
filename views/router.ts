@@ -18,7 +18,7 @@ const router = express.Router()
 // FOODS
 
 router.route('/foods')
-.get(secureRoute, getFoods)
+.get(getFoods)
 .post(createFoods)
 
 router.route('/my-foods')

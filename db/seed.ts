@@ -3,7 +3,9 @@ import Foods from "../models/foods"
 import Users from "../models/users"
 import { foodData } from "./foodData"
 import { userData } from "./userData"
+
 import { MONGODB_URI } from "../config/environment"
+
 
 // ! Jane moved the data arrays into the corresponding files and imported them here
 
@@ -23,6 +25,8 @@ async function seed() {
     // ! Pam's user seeding code - only works when users.ts is updated
     const users = await Users.create(userData)
     console.log(users)
+
+
 
   }
   catch (e: any) {

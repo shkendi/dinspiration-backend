@@ -1,12 +1,13 @@
 import { Request, Response } from "express"
 import Foods from "../models/foods"
+import { StatusCodes } from "http-status-codes"
 
 // GET FOODS
 
 export async function getFoods(req: Request, res: Response) {
   try {
     const foods = await Foods.find()
-    res.send(foods)
+    res.status(StatusCodes.OK).send(foods)
   }
   catch (e: any) {
     res.send(e.message)

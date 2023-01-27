@@ -5,7 +5,7 @@ export const secret = 'here is a secret only we know...'
 // ! Export the correct URI from this file
 export const MONGODB_URI = getMongoURI()
 
-// ! This function will give me the correct URI for mongo db based on environemnt
+// ! This function will give me the correct URI for mongodb based on environment
 function getMongoURI(): string {
   if (process.env.NODE_ENV === 'test') {
     return process.env.MONGODB_URI_TEST as string
