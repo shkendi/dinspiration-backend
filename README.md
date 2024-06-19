@@ -18,7 +18,7 @@
 
 ### Backend
 
-git@github.com:PamelaOnGit/dinspiration-backend.git
+https://github.com/shkendi/dinspiration-backend
 
 1. clone repo Dinspiration-Backend
 2. open Dinspiration-Backend in your code editor 
@@ -41,7 +41,8 @@ git@github.com:PamelaOnGit/dinspiration-frontend.git
 
 ## Timeframe & Working Team
 
-* This was a group project. The team consisted of myself, Jane and Shkendi. I took the lead on the coding, while Jane was active on the planning and project management side and Shkendi contributed some interesting ideas.
+* We agreed that Pam would take the lead on the user flow, Jane on the foods, and me on the recipes (which we called “inspirations”). We all contributed to the planning with ideas and logic and agreed that Jane would configure it using Figma. Planning was done mainly on the first day, added a few more details the day after, and then we jumped straight into the coding stage.
+We used Figma to create a mock-up of how the app would function. We worked up a flow, as follows:
 
 * The main project was completed over 10 days, but I have since made some additions and modifications. 
 
@@ -124,9 +125,7 @@ The user can share her own recipe or serving suggestion, along with a photo of h
 
 1. We set up a Jira project and divided the project into stages: planning and setup, backend-setup, backend development, frontend-setup, frontend development, testing.
 
-2. I set up two repositories in GitHub called [Dinspiration-Backend](https://github.com/PamelaOnGit/dinspiration-backend) and [Dinspiration-Frontend](https://github.com/PamelaOnGit/dinspiration-frontend).  I started on the backend by creating a basic API with some dummy user data in a file inside the backend repo.
-
-3. We agreed that I would take the lead on the user flow, Jane on the foods and Shkendi on the recipes (which we called, inspirations).  
+2. We agreed that Pam would take the lead on the user flow, Jane on the foods and I on the recipes (which we called, inspirations).  
 
 #### Models
 
