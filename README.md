@@ -1,4 +1,4 @@
-#  Dinspiration / Nyoodle 
+#  Dinspiration 
 
 * An app for foodies who want to try out new ingredients and inspire one another with original recipe ideas.  
 
